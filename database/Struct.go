@@ -8,3 +8,7 @@ type User struct {
 	Password string         `db:"password"`
 	IpAddres sql.NullString `db:"ipaddres"`
 }
+
+type IPResponse struct {
+	IP string `json:"ip"`
+}

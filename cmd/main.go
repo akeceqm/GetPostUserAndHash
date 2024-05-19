@@ -27,11 +27,10 @@ func main() {
 	defer db.Close()
 
 	handle.SetDB(db)
-	middlewares.SetDB(db)
 
 	server.GET("/users", handle.HandleUsersGET)
 	server.POST("/users", handle.HandleUserPOST)
-	server.POST("/authorization", middlewares.AuthorizationAcc)
+	server.POST("/authorization", handle.HandleAuthorizationAcc)
 
 	server.Run(":8080")
 
